@@ -32,16 +32,16 @@ EOF
 
 # Display an animation during long working time (ex. Creation of the theme)
 animation(){
-	frames=(". .. ...")
-	while kill -0 ${1} 2&>1 /dev/null
+	frames=("." ".." "...")
+	while kill -0 "${1}" > /dev/null 2>&1
 	do
-		for frame in ${frames}
+		for frame in "${frames[@]}"
 		do
-			printf "Rendering PNGs for ${2} ${frame}  \r"
+			printf "Rendering PNGs for %s %s  \r" "${2}" "${frame}"
 			sleep 0.5
 		done
 	done
-	printf "PNGs for ${2} finished \n"
+	printf "PNGs for %s finished \n" "${2}"
 }
 
 png_render(){
@@ -90,38 +90,37 @@ change_color(){
 
 run(){
 	# Remove old theme
-	rm -rf ../${theme_name}
+	rm -rf "../${theme_name}"
 	# Renders PNGs
-	png_render ${theme_name} 2&>1 /dev/null &
+	png_render "${theme_name}" > /dev/null 2>&1 &
 	pid=$!
-	animation $pid ${theme_name}
+	animation $pid "${theme_name}"
 	# Make X11 cursors
 	echo "Making the X11 cursors for ${theme_name}..."
 	# If this is a lefthand variant, we must use the lefthand hostspot file
-	if [[ ${theme} =~ .*lefthand ]]; then
-		./make.sh ${theme_name} '-lefthand'
+	if [[ ${theme_name} =~ .*lefthand ]]; then
+		./make.sh "${theme_name}" '-lefthand'
 	else
-		./make.sh ${theme_name}
+		./make.sh "${theme_name}"
 	fi
-	
 
 	# Create archives
 	echo "Making the archives for ${theme_name}..."
 	{
-		tar -zcf "${theme_name}.tar.gz" ${theme_name}/
-		if [ -d ../themes/${theme_name} ]; then
-			rm -rf ../themes/${theme_name}
+		tar -zcf "${theme_name}.tar.gz" "${theme_name}"/
+		if [ -d "../themes/${theme_name}" ]; then
+			rm -rf "../themes/${theme_name}"
 		fi
 		mv "${theme_name}"/ ../themes/
 		zip -r "${theme_name}-PNGs.zip" pngs/
-	} &> /dev/null
+	} > /dev/null
 
 	# Move the archives to the right folder
 	extensions="zip gz"
 	rm -rf ../archives/*
 	for archive in ${extensions}
 	do
-		mv *${archive} ../archives/
+		mv ./*"${archive}" ../archives/
 	done
 	echo "The cursors theme is finished!"
 }
