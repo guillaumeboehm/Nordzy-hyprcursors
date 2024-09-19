@@ -2,27 +2,26 @@
 
 # Set the name of your cursor theme
 themetitle=${1}
-lefthand_variant=${2}
 
-if [ -z ${1} ]
+if [ -z "${1}" ]
 then
 	echo "You must specify a name for your theme..."
 else
 	# For the folder name: Replace forbidden charakters with “-”
-	foldername=$(echo $themetitle | sed -e 's/[^A-Za-z0-9_-]/-/g')
-	mkdir -p $foldername
-	mkdir -p $foldername/cursors
-	echo '[Icon Theme]
-	Name="'$themetitle'"' > $foldername/index.theme
+	foldername=$(echo "$themetitle" | sed -e 's/[^A-Za-z0-9_-]/-/g')
+	mkdir -p "$foldername"
+	mkdir -p "$foldername/cursors"
+	echo "[Icon Theme]
+	Name=$themetitle" > "$foldername/index.theme"
 
 	# Go to hotspots folder, render the PNGs according to those files
-	cd "hotspots${2}"/
+	cd "hotspots${2}"/ || exit 1
 	for f in *.in ; do
-		xcursorgen "$f" ../$foldername/cursors/"${f%.in}" ;
+		xcursorgen "$f" "../$foldername/cursors/${f%.in}" ;
 	done
 
 	# Create symbolic links for equivalent cursors
-	cd ../$foldername/cursors
+	cd "../$foldername/cursors" || exit 1
 	ln -sf left_ptr default
 	ln -sf left_ptr top_left_arrow
 	ln -sf left_ptr left-arrow
