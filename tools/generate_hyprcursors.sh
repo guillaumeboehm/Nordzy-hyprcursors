@@ -120,7 +120,7 @@ name = ${theme_name}" > "${hyprcursor_theme_dir}/manifest.hl"
         estimation_count=$(( estimation_count + 1 ))
     done
 
-    # TODO: Make the hyprcursor and export it to archives
+    # INFO: Make the hyprcursor and export it to the themes dir
     hyprcursor-util -c "${hyprcursors_ws_dir}/${theme_name}" -o "${hyprcursors_dir}"
     mv "${hyprcursors_dir}/theme_${theme_name}" "${hyprcursors_dir}/$(echo "${theme_name}" | sed "s/-cursors//" | sed "s/^Nordzy/Nordzy-hyprcursors/")"
 
