@@ -10,6 +10,8 @@
 
 Cursor theme using the [Nord](https://github.com/arcticicestudio/nord) color palette and based on [Vimix](https://github.com/vinceliuice/Vimix-cursors) and [cz-Viator](https://github.com/charakterziffer/cursor-toolbox).
 
+### This fork contains the hyprcursors for all the Nordzy themes, see [Hyprcursor install](https://github.com/guillaumeboehm/Nordzy-cursors-hyprcursor?tab=readme-ov-file#hyprcursor-installation).
+
 ## Preview
 
 ![Nordzy dark icons](./art/preview-black.png)
@@ -20,13 +22,20 @@ Cursor theme using the [Nord](https://github.com/arcticicestudio/nord) color pal
 
 ## Linux
 
+### System package (recommended)
+Use a package maintained for your distribution and managed by your system if available, currently known packages:
+- XCursors (for most people):
+    * Archlinux (AUR): https://aur.archlinux.org/packages/nordzy-cursors
+- Hyprcursors (if you know you want it):
+    * Archlinux (AUR): https://aur.archlinux.org/packages/nordzy-hyprcursors
+
 ### Installer
 To use the installer, clone the repository and go inside it.
 ```
-git clone https://github.com/alvatip/Nordzy-cursors
-cd Nordzy-cursors
+git clone https://github.com/guillaumeboehm/Nordzy-cursors-hyprcursor
+cd Nordzy-cursors-hyprcursor
 ```
-Then, run the installer script. For local installation, use
+Then, run the installer script. For local installation (recommended), use
 ``` 
 ./install.sh
 ```
@@ -34,9 +43,12 @@ And for system wide installation use:
 ``` 
 sudo ./install.sh
 ```
+> [!NOTE]
+> To install hyprcursors alongside xcursors give the `--hyprcursors` option to the install script
+> example: `./install.sh --hyprcursors`
 ### tar.gz file
 Alternatively, you can use the tar.gz files located in the archive folder or in the release section and extract them to the adequate directory.</br>
-For local installation:
+For local installation (recommended):
 ```
 tar -zxvf Nordzy-cursors.tar.gz -C $HOME/.icons/
 tar -zxvf Nordzy-cursors-white.tar.gz -C $HOME/.icons/
@@ -47,8 +59,14 @@ tar -zxvf Nordzy-cursors.tar.gz -C /usr/share/icons/
 tar -zxvf Nordzy-cursors-white.tar.gz -C /usr/share/icons/
 ```
 
+### Hyprcursor installation
+
+#### Installer
+If no package is available for you distribution, you can install all available themes for the cursors using the install script.
+Steps are identical to the [xcursors installation](https://github.com/guillaumeboehm/Nordzy-cursors-hyprcursor?tab=readme-ov-file#installer) with the --hyprcursors option added to the install script.
+ 
 ### Set the cursor theme
-There are various way to set this (or another) cursor theme.</br>
+There are various ways to set this (or another) cursor theme.</br>
 You will find all the needed informations on this [ArchWiki](https://wiki.archlinux.org/title/Cursor_themes#GNOME)
 
 ### Uninstallation
@@ -60,6 +78,8 @@ And if you installed it system-wide use:
 ```
 sudo rm -r /usr/share/icons/Nordzy-cursors*
 ```
+> [!NOTE]
+> For hyprcursors the names are `Nordzy-hyprcursors*` instead of `Nordzy-cursors*`
 ## Windows
 
 To install the cursor theme on windows: 
