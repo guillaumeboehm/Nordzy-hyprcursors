@@ -1,0 +1,4 @@
+define_size = 0, left-arrow.svg
+hotspot_x = 0.125
+hotspot_y = 0.458333333333333
+define_override = left_arrow;sb_left_arrow

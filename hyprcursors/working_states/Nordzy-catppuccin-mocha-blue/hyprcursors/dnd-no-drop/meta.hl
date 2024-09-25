@@ -1,0 +1,4 @@
+define_size = 0, dnd-no-drop.svg
+hotspot_x = 0.416666666666667
+hotspot_y = 0.416666666666667
+define_override = no-drop;03b6e0fcb3499374a867c041f52298f0;03b6e0fcb3499374a867d041f52298f0

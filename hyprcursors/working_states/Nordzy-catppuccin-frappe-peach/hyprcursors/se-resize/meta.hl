@@ -1,0 +1,4 @@
+define_size = 0, se-resize.svg
+hotspot_x = 0.75
+hotspot_y = 0.75
+define_override = bottom_right_corner
