@@ -1,0 +1,4 @@
+define_size = 0, crosshair.svg
+hotspot_x = 0.458333333333333
+hotspot_y = 0.458333333333333
+define_override = tcross

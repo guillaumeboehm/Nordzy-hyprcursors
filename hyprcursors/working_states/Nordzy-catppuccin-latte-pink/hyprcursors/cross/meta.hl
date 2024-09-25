@@ -1,0 +1,4 @@
+define_size = 0, cross.svg
+hotspot_x = 0.416666666666667
+hotspot_y = 0.416666666666667
+define_override = tcross;diamond_cross;cross_reverse;target

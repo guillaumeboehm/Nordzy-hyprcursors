@@ -1,0 +1,4 @@
+define_size = 0, up-arrow.svg
+hotspot_x = 0.458333333333333
+hotspot_y = 0.0833333333333333
+define_override = up_arrow;sb_up_arrow

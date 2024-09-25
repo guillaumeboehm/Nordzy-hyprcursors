@@ -1,0 +1,4 @@
+define_size = 0, ns-resize.svg
+hotspot_x = 0.458333333333333
+hotspot_y = 0.458333333333333
+define_override = size_ver;size-ver;v_double_arrow;double_arrow;00008160000006810000408080010102;split_v;based_arrow_up;based_arrow_down;sb_v_double_arrow
