@@ -1,10 +1,18 @@
 #!/bin/bash
 
 script_dir="$(realpath "$(dirname "${0}")")"
-hyprcursors_ws_dir="${script_dir}/../hyprcursors/working_states"
-hyprcursors_dir="${script_dir}/../hyprcursors/themes"
+hyprcursors_root="${script_dir}/../hyprcursors"
+hyprcursors_ws_dir="${hyprcursors_root}/working_states"
+hyprcursors_dir="${hyprcursors_root}/themes"
+archives_dir="${script_dir}/../archives"
+themes_to_archive="Nordzy-hyprcursors Nordzy-hyprcursors-white"
+
+# INFO: Cleanup
+rm -rf "${hyprcursors_root}"
 mkdir -p "${hyprcursors_ws_dir}"
 mkdir -p "${hyprcursors_dir}"
+
+# INFO:
 
 function main() {
     # INFO: Determine themes to make
@@ -29,6 +37,14 @@ function main() {
         make_theme "${theme_name}"
         total_estimate=$(( total_estimate + (SECONDS - start_time) ))
         estimation_count=$(( estimation_count + 1 ))
+    done
+
+    # INFO: Export Nordzy-hyprcursors and Nordzy-hyprcursors-white to the archives folder
+    for archive in ${themes_to_archive}; do
+        local archive_file="${archives_dir}/${archive}.tar.gz"
+        rm -rf "${archive_file}"
+        tar zcvf "${archive_file}" --directory="${hyprcursors_dir}" "${archive}"
+        sha256sum "${archive}"
     done
 }
 
@@ -80,20 +96,10 @@ name = ${theme_name}" > "${hyprcursor_theme_dir}/manifest.hl"
 
     local progress=0
     local total=${#slices[@]}
-    local total_estimate=0
-    local estimation_count=0
     for shape_name in "${slices[@]}"; do
-        start_time=$SECONDS
         progress=$(( progress + 1 ))
-        if [ ${estimation_count} -gt 0 ]; then
-            mean_estimate="$(perl -E "say (${total_estimate} / ${estimation_count})")"
-        else
-            mean_estimate="0"
-        fi
-        echo "[${progress}/${total}] Making shape ${shape_name}... (estimated time: $(echo "$(perl -E "say ${mean_estimate} * (${total} - ${progress})") / 1" | bc) seconds)"
+        echo "[${progress}/${total}] Making shape ${shape_name}..."
         make_shape "${shape_name}" "${tmp_theme_svg}" "${hyprcursor_shapes_dir}"
-        total_estimate=$(( total_estimate + (SECONDS - start_time) ))
-        estimation_count=$(( estimation_count + 1 ))
     done
 
     # INFO: Make all the animated shapes
@@ -104,25 +110,16 @@ name = ${theme_name}" > "${hyprcursor_theme_dir}/manifest.hl"
 
     local progress=0
     local total=${#animated_shapes[@]}
-    local total_estimate=0
-    local estimation_count=0
     for shape_name in "${animated_shapes[@]}"; do
-        start_time=$SECONDS
         progress=$(( progress + 1 ))
-        if [ ${estimation_count} -gt 0 ]; then
-            mean_estimate="$(perl -E "say (${total_estimate} / ${estimation_count})")"
-        else
-            mean_estimate="0"
-        fi
-        echo "[${progress}/${total}] Making shape ${shape_name}... (estimated time: $(echo "$(perl -E "say ${mean_estimate} * (${total} - ${progress})") / 1" | bc) seconds)"
+        echo "[${progress}/${total}] Making shape ${shape_name}..."
         make_animated_shape "${shape_name}" "${tmp_animation_theme_svg}" "${hyprcursor_shapes_dir}" "${all_animation_slices}"
-        total_estimate=$(( total_estimate + (SECONDS - start_time) ))
-        estimation_count=$(( estimation_count + 1 ))
     done
 
     # INFO: Make the hyprcursor and export it to the themes dir
+    generated_hyprcursors_path="${hyprcursors_dir}/$(echo "${theme_name}" | sed "s/-cursors//" | sed "s/^Nordzy/Nordzy-hyprcursors/")"
     hyprcursor-util -c "${hyprcursors_ws_dir}/${theme_name}" -o "${hyprcursors_dir}"
-    mv "${hyprcursors_dir}/theme_${theme_name}" "${hyprcursors_dir}/$(echo "${theme_name}" | sed "s/-cursors//" | sed "s/^Nordzy/Nordzy-hyprcursors/")"
+    mv "${hyprcursors_dir}/theme_${theme_name}" "${generated_hyprcursors_path}"
 
     # INFO: Cleanup
     rm "${tmp_theme_svg}"
@@ -185,7 +182,7 @@ function output_slice() {
     inkscape "${output_svg}" --actions='select-by-selector:g[inkscape\00003Alabel="cursors"];selection-ungroup' -o "${output_svg}"
 
     # use svgo to cleanup everything outside of the page
-    svgo "${output_svg}" -o "${output_svg}" --config ./svgo.config.mjs > /dev/null
+    svgo "${output_svg}" -o "${output_svg}" --config "${script_dir}/svgo.config.mjs" > /dev/null
 }
 
 function append_info_to_shape_meta_file() {
