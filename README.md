@@ -20,7 +20,7 @@
 
 Cursor theme using the [Nord](https://github.com/arcticicestudio/nord) color palette and based on [Vimix](https://github.com/vinceliuice/Vimix-cursors) and [cz-Viator](https://github.com/charakterziffer/cursor-toolbox).
 
-### This fork contains the hyprcursors for all the Nordzy themes, see [Hyprcursor install](https://github.com/guillaumeboehm/Nordzy-cursors-hyprcursor?tab=readme-ov-file#hyprcursor-installation).
+### This fork contains the hyprcursors for all the Nordzy themes, see [Hyprcursor install](https://github.com/guillaumeboehm/Nordzy-hyprcursors?tab=readme-ov-file#hyprcursor-installation).
 
 ## Preview
 
@@ -46,8 +46,8 @@ Use a package maintained for your distribution and managed by your system if ava
 ### Manual installer
 To use the installer, clone the repository and go inside it.
 ```
-git clone https://github.com/guillaumeboehm/Nordzy-cursors-hyprcursor
-cd Nordzy-cursors-hyprcursor
+git clone https://github.com/guillaumeboehm/Nordzy-hyprcursors
+cd Nordzy-hyprcursors
 ```
 Then, run the installer script. For local installation (recommended), use
 ``` 
@@ -77,7 +77,7 @@ tar -zxvf Nordzy-cursors-white.tar.gz -C /usr/share/icons/
 
 #### Installer
 If no package is available for you distribution, you can install all available themes for the cursors using the install script.
-Steps are identical to the [xcursors installation](https://github.com/guillaumeboehm/Nordzy-cursors-hyprcursor?tab=readme-ov-file#installer) with the --hyprcursors option added to the install script.
+Steps are identical to the [xcursors installation](https://github.com/guillaumeboehm/Nordzy-hyprcursors?tab=readme-ov-file#installer) with the --hyprcursors option added to the install script.
  
 ### Set the cursor theme
 There are various ways to set this (or another) cursor theme.</br>
