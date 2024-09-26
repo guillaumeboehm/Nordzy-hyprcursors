@@ -39,7 +39,11 @@ Use a package maintained for your distribution and managed by your system if ava
 - Hyprcursors (if you know you want it):
     * Archlinux (AUR): https://aur.archlinux.org/packages/nordzy-hyprcursors
 
-### Installer
+> [!NOTE]
+> Packages only bundle the standard black and white color variants.
+> To use one of the catpuccin color variants, install manually.
+
+### Manual installer
 To use the installer, clone the repository and go inside it.
 ```
 git clone https://github.com/guillaumeboehm/Nordzy-cursors-hyprcursor
@@ -56,7 +60,7 @@ sudo ./install.sh
 > [!NOTE]
 > To install hyprcursors alongside xcursors give the `--hyprcursors` option to the install script
 > example: `./install.sh --hyprcursors`
-### tar.gz file
+### Archive file
 Alternatively, you can use the tar.gz files located in the archive folder or in the release section and extract them to the adequate directory.</br>
 For local installation (recommended):
 ```
