@@ -122,6 +122,14 @@ If you need any further information on how Mousecape works or if you have issues
 [Nordzy](https://github.com/alvatip/Nordzy-icon) icon theme. </br> 
 [Nordic](https://github.com/EliverLara/Nordic) GTK theme.
 
+### List of cursors and demos
+- [Tk cursors](https://wiki.tcl-lang.org/page/Cursor+demo)
+- [Qt cursors](https://doc.qt.io/qt-6/qcursor.html#a-note-for-x11-users)
+- [X cursors](https://tronche.com/gui/x/xlib/appendix/b/)
+- [CSS cursors](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#keyword)
+- [GTK cursors](https://docs.gtk.org/gdk3/enum.CursorType.html)
+- Windows ? (I mean who cares)
+
 ##  Issues
 
 If you have any issues, report them [here](https://github.com/alvatip/Nordzy-cursors/issues), I will be happy to help you!
