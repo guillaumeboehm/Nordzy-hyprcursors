@@ -52,7 +52,7 @@ sudo ./install.sh
 > To install hyprcursors alongside xcursors give the `--hyprcursors` option to the install script
 > example: `./install.sh --hyprcursors`
 ### Archive file
-Alternatively, you can use the tar.gz files located in the archive folder or in the release section and extract them to the adequate directory.</br>
+Alternatively, you can use the tar.gz files located in the release section and extract them to the adequate directory.</br>
 For local installation (recommended):
 ```
 tar -zxvf Nordzy-cursors.tar.gz -C $HOME/.icons/
@@ -63,6 +63,10 @@ For system-wide installation:
 tar -zxvf Nordzy-cursors.tar.gz -C /usr/share/icons/
 tar -zxvf Nordzy-cursors-white.tar.gz -C /usr/share/icons/
 ```
+
+> [!NOTE]
+> Archives are only provided for the standard black and white color variants.
+> To use one of the catpuccin color variants, install manually.
 
 ### Hyprcursor installation
 
