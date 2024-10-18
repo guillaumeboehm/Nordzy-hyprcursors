@@ -1,27 +1,32 @@
-#!/bin/sh
+#!/bin/bash
 
 # Set the name of your cursor theme
+script_dir="$(realpath "$(dirname "${0}")")"
 themetitle=${1}
 
 if [ -z "${1}" ]
 then
 	echo "You must specify a name for your theme..."
 else
+    pushd "${script_dir}" > /dev/null || exit 1
+
 	# For the folder name: Replace forbidden charakters with “-”
-	foldername=$(echo "$themetitle" | sed -e 's/[^A-Za-z0-9_-]/-/g')
+	foldername="${themetitle//[^A-Za-z0-9_-]/-/}"
+
 	mkdir -p "$foldername"
 	mkdir -p "$foldername/cursors"
 	echo "[Icon Theme]
 	Name=$themetitle" > "$foldername/index.theme"
 
 	# Go to hotspots folder, render the PNGs according to those files
-	cd "hotspots${2}"/ || exit 1
+    pushd "hotspots${2}"/ > /dev/null || exit 1
 	for f in *.in ; do
 		xcursorgen "$f" "../$foldername/cursors/${f%.in}" ;
 	done
+    popd > /dev/null || exit 1
 
 	# Create symbolic links for equivalent cursors
-	cd "../$foldername/cursors" || exit 1
+	pushd "$foldername/cursors" > /dev/null || exit 1
 	ln -sf cell plus
 	ln -sf closedhand 208530c400c041818281048008011002
 	ln -sf closedhand dnd-none
@@ -140,4 +145,6 @@ else
 	ln -sf zoom-in zoom_in
 	ln -sf zoom-out f41c0e382c97c0938e07017e42800402
 	ln -sf zoom-out zoom_out
+
+    popd -2 > /dev/null || exit 1
 fi
