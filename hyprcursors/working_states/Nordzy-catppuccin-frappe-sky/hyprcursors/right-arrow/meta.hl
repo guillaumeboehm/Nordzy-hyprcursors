@@ -1,4 +1,0 @@
-define_size = 0, right-arrow.svg
-hotspot_x = 0.833333333333333
-hotspot_y = 0.458333333333333
-define_override = right_arrow;sb_right_arrow
