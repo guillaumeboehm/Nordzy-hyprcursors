@@ -1,4 +1,4 @@
 define_size = 0, zoom-out.svg
 hotspot_x = 0.416666666666667
 hotspot_y = 0.416666666666667
-define_override = zoom_out;f41c0e382c97c0938e07017e42800402
+define_override = f41c0e382c97c0938e07017e42800402;zoom_out

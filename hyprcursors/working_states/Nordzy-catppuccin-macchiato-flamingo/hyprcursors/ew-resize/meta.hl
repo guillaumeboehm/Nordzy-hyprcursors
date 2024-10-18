@@ -1,4 +1,4 @@
 define_size = 0, ew-resize.svg
 hotspot_x = 0.458333333333333
 hotspot_y = 0.458333333333333
-define_override = size_hor;size-hor;h_double_arrow;028006030e0e7ebffc7f7070c0600140;split_h;sb_h_double_arrow
+define_override = 028006030e0e7ebffc7f7070c0600140;h_double_arrow;sb_h_double_arrow;size-hor;size_hor;split_h

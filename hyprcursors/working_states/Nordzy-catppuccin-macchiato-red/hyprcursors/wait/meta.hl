@@ -16,4 +16,4 @@ define_size = 0, wait-15.svg, 62
 define_size = 0, wait-16.svg, 62
 hotspot_x = 0.458333333333333
 hotspot_y = 0.458333333333333
-define_override = watch;clock;0426c94ea35c87780ff01dc239897213
+define_override = 0426c94ea35c87780ff01dc239897213;clock;watch

@@ -44,7 +44,7 @@ function main() {
         local archive_file="${archives_dir}/${archive}.tar.gz"
         rm -rf "${archive_file}"
         tar zcvf "${archive_file}" --directory="${hyprcursors_dir}" "${archive}"
-        sha256sum "${archive}"
+        sha256sum "${archive_file}"
     done
 }
 

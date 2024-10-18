@@ -1,4 +1,4 @@
 define_size = 0, dotbox.svg
 hotspot_x = 0.458333333333333
 hotspot_y = 0.458333333333333
-define_override = draped_box;icon;dot_box_mask
+define_override = dot_box_mask;draped_box;icon

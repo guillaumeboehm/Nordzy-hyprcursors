@@ -1,4 +1,4 @@
 define_size = 0, closedhand.svg
 hotspot_x = 0.416666666666667
 hotspot_y = 0.416666666666667
-define_override = grabbing;dnd-none;208530c400c041818281048008011002
+define_override = 208530c400c041818281048008011002;dnd-none;grabbing

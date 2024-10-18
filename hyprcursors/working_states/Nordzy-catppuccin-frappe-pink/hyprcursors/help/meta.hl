@@ -1,4 +1,4 @@
 define_size = 0, help.svg
 hotspot_x = 0.125
 hotspot_y = 0.0833333333333333
-define_override = question_arrow;whats_this;gumby;5c6cd98b3f3ebcb1f9c7f1c204630408;d9ce0ab605698f320427677b458ad60b
+define_override = 5c6cd98b3f3ebcb1f9c7f1c204630408;d9ce0ab605698f320427677b458ad60b;gumby;question_arrow;whats_this

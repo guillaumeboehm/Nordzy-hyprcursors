@@ -16,4 +16,4 @@ define_size = 0, progress-15.svg, 62
 define_size = 0, progress-16.svg, 62
 hotspot_x = 0.125
 hotspot_y = 0.0833333333333333
-define_override = left_ptr_watch;half-busy;00000000000000020006000e7e9ffc3f;08e8e1c95fe2fc01f976f1e063a24ccd;3ecb610c1bf2410f44200f48c40d3599;9116a3ea924ed2162ecab71ba103b17f
+define_override = 00000000000000020006000e7e9ffc3f;08e8e1c95fe2fc01f976f1e063a24ccd;3ecb610c1bf2410f44200f48c40d3599;9116a3ea924ed2162ecab71ba103b17f;half-busy;left_ptr_watch

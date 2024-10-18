@@ -1,4 +1,4 @@
 define_size = 0, pointing_hand.svg
 hotspot_x = 0.25
 hotspot_y = 0.0833333333333333
-define_override = pointer;hand;hand2;e29285e634086352946a0e7090d73106
+define_override = e29285e634086352946a0e7090d73106;hand;hand2;pointer
