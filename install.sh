@@ -68,7 +68,7 @@ ascii_art
 
 themes_paths=""
 if ${xcursors_gen}; then
-    themes_paths="${themes_path} ${script_dir}/themes"
+    themes_paths="${themes_path} ${script_dir}/xcursors"
 fi
 if ${hyprcursors_gen}; then
     themes_paths="${themes_path} ${script_dir}/hyprcursors/themes"

@@ -127,10 +127,10 @@ run(){
         done
     fi
 
-    if [ -d "../themes/${theme_name}" ]; then
-        rm -rf "../themes/${theme_name}"
+    if [ -d "../xcursors/${theme_name}" ]; then
+        rm -rf "../xcursors/${theme_name}"
     fi
-    mv "${theme_name}"/ ../themes/
+    mv "${theme_name}"/ ../xcursors/
 
     popd > /dev/null || return 1
     echo "The cursors theme is finished!"
